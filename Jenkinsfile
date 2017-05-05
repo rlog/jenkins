@@ -8,7 +8,8 @@ pipeline {
     }
     stage('start server') {
       steps {
-        sh 'yarn start'
+        sh '''pm2 delete jenkins
+pm2 start bin/www -i 0 --name "jenkins"'''
       }
     }
   }
